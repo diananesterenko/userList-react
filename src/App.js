@@ -1,7 +1,13 @@
 import "./App.css";
-
+import NewsList from "./components/NewsList";
 function App() {
-  return <></>;
+  return (
+    <>
+      <ul className="newsList">
+        <NewsList />
+      </ul>
+    </>
+  );
 }
 
 export default App;

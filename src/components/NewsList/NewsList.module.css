@@ -1,0 +1,59 @@
+.news {
+  border: rgb(127, 127, 127) 1px solid;
+  box-shadow: gray 0 0 5px;
+  margin: 10px;
+}
+.newsHeader {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.newsHeaderBackground {
+  background-color: rgba(240, 248, 255, 0.493);
+}
+.newsTitle {
+  padding: 60px 10px;
+  margin: 0;
+  text-align: center;
+}
+
+.like,
+.delete {
+  right: 0;
+  position: absolute;
+  padding: 13px 13px 10px 13px;
+  border: rgb(35, 35, 35) 1px solid;
+  border-radius: 50%;
+  margin: 5px;
+  font-size: 18px;
+  box-shadow: 2px 2px 3px rgba(45, 45, 45, 0.79);
+}
+.like {
+  padding: 13px 13px 7px 13px;
+}
+
+.highlightLi {
+  background-color: rgba(255, 192, 203, 0.768);
+  border: 2px solid pink;
+}
+.newsContent {
+  margin: 10px 0px 0px 20px;
+  padding: 0px 20px 10px 0px;
+  position: relative;
+}
+.newsContetntTitle,
+.newsContentDate {
+  text-transform: uppercase;
+  font-weight: 170;
+  color: rgb(113, 113, 113);
+}
+.newsContentText {
+  font-size: 14px;
+}
+.newsContentDate {
+  font-size: 12px;
+}
+.delete {
+  bottom: 0;
+}
