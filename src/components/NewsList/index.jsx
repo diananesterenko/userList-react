@@ -1,6 +1,6 @@
 import { useState } from "react";
-import styles from "./NewsList.module.css";
-import { FaRegHeart, FaTrash } from "react-icons/fa6";
+
+import NewsListItem from "../NewsListItem";
 
 function NewsList() {
   const newsDb = [
@@ -45,7 +45,14 @@ function NewsList() {
       id: "123456",
     },
   ];
-  const [news, setNews] = useState(newsDb);
+  const [news, setNews] = useState(
+    newsDb.map((n) => ({ ...n, isSelected: false }))
+  );
+  function selectNew(index) {
+    const newsCopy = [...news];
+    newsCopy[index] = { ...news[index], isSelected: !news[index].isSelected };
+    setNews(newsCopy);
+  }
   function removeNew(index) {
     const newsCopy = [...news];
     newsCopy.splice(index, 1);
@@ -53,28 +60,13 @@ function NewsList() {
   }
   function mapNews(n, index) {
     return (
-      <li key={n.id} className={styles.news}>
-        <div
-          className={styles.newsHeader}
-          style={{ backgroundImage: `url(${n.headerBgSrc})` }}
-        >
-          <div className={styles.newsHeaderBackground}>
-            <button className={styles.like}>
-              <FaRegHeart />
-            </button>
-
-            <h2 className={styles.newsTitle}>{n.title}</h2>
-          </div>
-        </div>
-        <div className={styles.newsContent}>
-          <h5 className={styles.newsContetntTitle}>{n.category}</h5>
-          <p className={styles.newsContentText}>{n.body}</p>
-          <p className={styles.newsContentDate}>{n.date}</p>
-          <button onClick={() => removeNew(index)} className={styles.delete}>
-            <FaTrash />
-          </button>
-        </div>
-      </li>
+      <NewsListItem
+        key={n.id}
+        new={n}
+        index={index}
+        removeNew={removeNew}
+        selectNew={selectNew}
+      />
     );
   }
 
